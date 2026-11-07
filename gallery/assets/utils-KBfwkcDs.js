@@ -1,0 +1,1 @@
+import{t as e}from"./clsx-DB0hHKMi.js";import{n as t}from"./bundle-mjs-BcGqoABP.js";function n(...n){return t(e(n))}export{n as t};

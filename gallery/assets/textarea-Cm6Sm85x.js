@@ -1,0 +1,2 @@
+import{r as e}from"./rolldown-runtime-XKyaHtl9.js";import{t}from"./textarea-Btuoie_3.js";import{t as n}from"./jsx-runtime-C3cWAN_r.js";var r=e(n(),1);function i(){return(0,r.jsx)(`div`,{style:{width:420},children:(0,r.jsx)(t,{placeholder:`What changed in this release?`,defaultValue:`Fixes the date picker's month jump.
+Adds the keyboard hint to the empty state.`})})}export{i as default};

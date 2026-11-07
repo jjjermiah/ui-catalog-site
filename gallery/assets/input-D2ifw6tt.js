@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-XKyaHtl9.js";import{t}from"./input-umfz2298.js";import{t as n}from"./jsx-runtime-C3cWAN_r.js";var r=e(n(),1);function i(){return(0,r.jsx)(t,{})}export{i as default};
