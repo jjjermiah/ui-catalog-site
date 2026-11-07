@@ -9,7 +9,9 @@
 
 const ROWS = 200;
 const FEATURED = 5;
-const REPO = "https://github.com/jjjermiah/ui-catalog/blob/main/";
+// files are /blob/, folders are /tree/ (GitHub redirects the wrong one, but not reliably)
+const BLOB = "https://github.com/jjjermiah/ui-catalog/blob/main/";
+const TREE = "https://github.com/jjjermiah/ui-catalog/tree/main/";
 
 const state = { items: [], lib: "", tier: "", q: "", sort: "lines", shown: ROWS };
 
@@ -169,13 +171,13 @@ function openItem(id) {
     ${props}
     <h3>files</h3>
     <div class="files">
-      ${it.code ? `<div><a href="${REPO}${esc(it.code)}" target="_blank" rel="noreferrer">${esc(it.code)}</a> <span>· ${num(it.lines)} lines</span></div>` : ""}
+      ${it.code ? `<div><a href="${BLOB}${esc(it.code)}" target="_blank" rel="noreferrer">${esc(it.code)}</a> <span>· ${num(it.lines)} lines</span></div>` : ""}
       <div><span>${it.files} files · ${num(it.bytes)} bytes${it.css ? " · includes css" : ""}</span></div>
     </div>
     <h3>where it came from</h3>
     <p>${origin}</p>
     ${it.chunk ? `<p class="mono">chunk ${esc(it.chunk)}${it.module ? ` · module ${esc(it.module)}` : ""}</p>` : ""}
-    <p><a href="${REPO}${esc(it.id)}" target="_blank" rel="noreferrer">Folder on GitHub</a></p>
+    <p><a href="${TREE}${esc(it.id)}" target="_blank" rel="noreferrer">Folder on GitHub</a></p>
   `;
   $("#drawer").hidden = false;
   $("#close").onclick = closeDrawer;
