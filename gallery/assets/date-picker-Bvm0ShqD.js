@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-XKyaHtl9.js";import{t}from"./date-picker-wjOjaW3-.js";import{t as n}from"./jsx-runtime-C3cWAN_r.js";var r=e(n(),1);function i(){return(0,r.jsx)(`div`,{style:{width:320},children:(0,r.jsx)(t,{label:`Start date`})})}export{i as default};
