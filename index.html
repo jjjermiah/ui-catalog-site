@@ -6,57 +6,58 @@
 <title>Component catalog</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="styles.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <aside class="rail" id="rail">
-    <div class="brand">
-      <span class="dot"></span>
-      <div>
-        <strong>Component catalog</strong>
-        <small id="total">loading…</small>
-      </div>
+  <header class="masthead">
+    <div class="masthead-left">
+      <h1>Component catalog</h1>
+      <p>Eleven libraries of React source, none of it written here. <span id="lede-count">2,204</span> items in three degrees of fidelity.</p>
     </div>
-    <nav id="libs" class="libs"></nav>
-    <div class="railfoot">
-      <div class="tiers">
-        <span class="tier t-A" title="The library published this file itself">A exact</span>
-        <span class="tier t-B" title="Compiled module decompiled back to JSX">B recovered</span>
-        <span class="tier t-C" title="Someone rebuilt it from the outside">C replica</span>
-      </div>
-      <button id="theme" class="ghost" type="button">Toggle theme</button>
-    </div>
-  </aside>
+    <nav class="views">
+      <button id="view-showcase" type="button" aria-pressed="true">Selected</button>
+      <button id="view-all" type="button" aria-pressed="false">All items</button>
+    </nav>
+  </header>
 
-  <main>
-    <header class="bar">
-      <div class="search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="Search components, descriptions…  ( / )" autocomplete="off" spellcheck="false" />
-      </div>
+  <div class="key">
+    <span><b class="tA">A</b> the library published this file</span>
+    <span><b class="tB">B</b> recovered from a compiled bundle</span>
+    <span><b class="tC">C</b> rebuilt from the outside</span>
+  </div>
+
+  <!-- Selected: a handful of substantial components per library -->
+  <main id="showcase"></main>
+
+  <!-- All items: dense index -->
+  <main id="catalog" hidden>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Filter by name, slug, description, category" autocomplete="off" spellcheck="false" />
+      <select id="lib" aria-label="Library"></select>
       <select id="tier" aria-label="Tier">
-        <option value="">All tiers</option>
-        <option value="A">A · exact</option>
+        <option value="">Every tier</option>
+        <option value="A">A · published</option>
         <option value="B">B · recovered</option>
-        <option value="C">C · replica</option>
+        <option value="C">C · rebuilt</option>
       </select>
       <select id="sort" aria-label="Sort">
-        <option value="name">By name</option>
-        <option value="lines">By size</option>
-        <option value="lib">By library</option>
+        <option value="lines">Largest first</option>
+        <option value="name">Name</option>
+        <option value="lib">Library</option>
       </select>
       <span id="count" class="count"></span>
-    </header>
-
-    <div id="grid" class="grid" aria-live="polite"></div>
-    <div id="more" class="more"><button class="ghost" type="button">Load more</button></div>
-    <div id="empty" class="empty" hidden>Nothing matches that.</div>
+    </div>
+    <table class="index">
+      <thead>
+        <tr><th>Component</th><th>Library</th><th class="num">Lines</th><th class="num">Files</th><th class="tiercol">Tier</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <button id="more" class="more" type="button">Show more</button>
+    <p id="empty" class="empty" hidden>Nothing matches that.</p>
   </main>
 
-  <section id="drawer" class="drawer" hidden aria-modal="true" role="dialog">
-    <div class="sheet" id="sheet"></div>
+  <section id="drawer" hidden>
+    <article id="sheet"></article>
   </section>
 
   <script src="app.js" type="module"></script>
